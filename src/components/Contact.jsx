@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,6 +16,21 @@ export default function Contact() {
   const headingRef = useRef(null);
   const linksRef = useRef(null);
   const formRef = useRef(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const data = new FormData(e.target);
+    await fetch("https://formspree.io/f/mbdawpve", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+    setSubmitting(false);
+    setSubmitted(true);
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -135,49 +150,55 @@ export default function Contact() {
                 Serious inquiries only — no samples or music submissions
               </p>
 
-              <form
-                ref={formRef}
-                action="https://formspree.io/f/mbdawpve"
-                method="POST"
-                className="flex flex-col gap-6 max-w-xl"
-              >
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  required
-                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
-                />
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows={4}
-                  required
-                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300 resize-none"
-                />
-                <div>
-                  <button
-                    type="submit"
-                    className="font-[Urbanist] text-[14px] tracking-wider uppercase text-[#ccc] border border-[#555] hover:border-[#c0c0c0] hover:text-[#f2f0eb] rounded-full px-7 py-3 bg-transparent cursor-pointer transition-all duration-300 font-light"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
+              {submitted ? (
+                <p className="font-[Urbanist] text-base text-[#c0c0c0] font-light">
+                  Thanks for reaching out — I'll get back to you soon.
+                </p>
+              ) : (
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-6 max-w-xl"
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    required
+                    className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
+                  />
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                    className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    rows={4}
+                    required
+                    className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300 resize-none"
+                  />
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="font-[Urbanist] text-[14px] tracking-wider uppercase text-[#ccc] border border-[#555] hover:border-[#c0c0c0] hover:text-[#f2f0eb] rounded-full px-7 py-3 bg-transparent cursor-pointer transition-all duration-300 font-light disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {submitting ? "Sending..." : "Send Message"}
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
 
