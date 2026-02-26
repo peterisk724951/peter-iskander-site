@@ -7,6 +7,7 @@ import Marquee from "./components/Marquee";
 import About from "./components/About";
 import Discography from "./components/Discography";
 import Listen from "./components/Listen";
+import Products from "./components/Products";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -32,6 +33,7 @@ export default function App() {
             <About />
             <Discography />
             <Listen />
+            <Products />
             <Services />
             <Contact />
             <Footer />
