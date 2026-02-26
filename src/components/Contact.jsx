@@ -8,6 +8,7 @@ const socials = [
   { name: "Spotify", href: "https://open.spotify.com/playlist/5cqkVsslOxda5lMkNIBhgS?si=0ca70ba39e9245f6" },
   { name: "Instagram", href: "https://instagram.com/peteiskander" },
   { name: "X", href: "https://x.com/peterisk_" },
+  { name: "Genius", href: "https://genius.com/artists/Peter-iskander" },
 ];
 
 export default function Contact() {

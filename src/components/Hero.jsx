@@ -286,7 +286,14 @@ export default function Hero() {
               >
                 <img
                   src={cover}
-                  alt=""
+                  alt={[
+                    "CAN'T RUSH GREATNESS by Central Cee",
+                    "Her Loss by Drake & 21 Savage",
+                    "LOYALTY OVER LOVE by reezy",
+                    "SET IT OFF by Offset",
+                    "Gift For the Streets by Kodak Black",
+                    "Heart On My Sleeve by Ella Mai",
+                  ][i]}
                   loading="eager"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
