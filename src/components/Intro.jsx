@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const tracks = [
   {
-    cover: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e1/6e/6a/e16e6a89-3e6d-1936-1a9c-b51680bcd4c1/22UM1IM29132.rgb.jpg/600x600bb.jpg",
-    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/52/e4/01/52e4019e-4075-893d-a0dd-80ee3ed1a4dd/mzaf_1509276887701592279.plus.aac.p.m4a",
-  },
-  {
     cover: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5a/7f/ef/5a7fefe9-5b4c-c72b-2446-6d4a0bc1d819/196872591545.jpg/600x600bb.jpg",
     preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/90/79/1f/90791f61-8124-57d0-4e27-4482cbf2d507/mzaf_9113101320896363307.plus.aac.p.m4a",
+  },
+  {
+    cover: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e1/6e/6a/e16e6a89-3e6d-1936-1a9c-b51680bcd4c1/22UM1IM29132.rgb.jpg/600x600bb.jpg",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/52/e4/01/52e4019e-4075-893d-a0dd-80ee3ed1a4dd/mzaf_1509276887701592279.plus.aac.p.m4a",
   },
   {
     cover: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/f6/ca/c8/f6cac844-4d88-77a2-6b07-ae0f94e9fa23/23UM1IM01921.rgb.jpg/600x600bb.jpg",
