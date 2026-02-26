@@ -36,15 +36,11 @@ export default function Listen() {
       className="py-20 md:py-48 px-6 md:px-12 bg-[#0a0a0a]"
     >
       <div ref={contentRef} className="max-w-[1600px] mx-auto">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-8 mb-14">
-          <div className="md:col-span-3">
+        <div className="mb-14">
+          <div className="text-center">
             <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-4">
               Listen
             </p>
-            <div className="w-8 h-[1px] bg-[#2a2a2a]" />
-          </div>
-
-          <div className="md:col-span-8 md:col-start-5 text-center">
             <h2
               className="font-[Michroma] font-bold text-4xl md:text-6xl tracking-tight leading-[1.05]"
               style={{
