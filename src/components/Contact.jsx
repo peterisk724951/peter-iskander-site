@@ -15,6 +15,7 @@ export default function Contact() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const linksRef = useRef(null);
+  const formRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -46,6 +47,25 @@ export default function Contact() {
             stagger: 0.08,
             scrollTrigger: {
               trigger: linksRef.current,
+              start: "top 85%",
+              end: "top 55%",
+              scrub: 1,
+            },
+          }
+        );
+      }
+
+      // Form stagger
+      if (formRef.current) {
+        gsap.fromTo(
+          formRef.current.children,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: formRef.current,
               start: "top 85%",
               end: "top 55%",
               scrub: 1,
@@ -109,6 +129,56 @@ export default function Contact() {
                 &rarr;
               </span>
             </a>
+
+            <div className="mt-16">
+              <p className="font-[Urbanist] text-[10px] tracking-[0.2em] uppercase text-[#505050] mb-10">
+                Serious inquiries only — no samples or music submissions
+              </p>
+
+              <form
+                ref={formRef}
+                action="https://formspree.io/f/mbdawpve"
+                method="POST"
+                className="flex flex-col gap-6 max-w-xl"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  required
+                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300"
+                />
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  rows={4}
+                  required
+                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300 resize-none"
+                />
+                <div>
+                  <button
+                    type="submit"
+                    className="font-[Urbanist] text-[14px] tracking-wider uppercase text-[#999] border border-[#333] hover:border-[#c0c0c0] hover:text-[#f2f0eb] rounded-full px-7 py-3 bg-transparent cursor-pointer transition-all duration-300 font-light"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
 
           <div className="md:col-span-3 md:col-start-10 flex flex-col justify-end">

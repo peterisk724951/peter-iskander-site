@@ -8,7 +8,6 @@ import About from "./components/About";
 import Discography from "./components/Discography";
 import Listen from "./components/Listen";
 import Products from "./components/Products";
-import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
@@ -34,7 +33,6 @@ export default function App() {
             <Discography />
             <Listen />
             <Products />
-            <Services />
             <Contact />
             <Footer />
             <BackToTop />
