@@ -4,6 +4,31 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const socialIcons = {
+  Spotify: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+    </svg>
+  ),
+  Instagram: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  X: (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  ),
+  Genius: (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11.876 1.578c-5.691 0-10.298 4.607-10.298 10.298s4.607 10.298 10.298 10.298c.404 0 .804-.024 1.198-.07a.256.256 0 0 0 .163-.423c-.462-.462-.663-1.118-.534-1.744.237-1.148 1.263-1.9 2.429-1.782 1.378.14 2.253-.606 2.724-1.322.605-.918.794-2.039.528-3.108-.585-2.349-2.544-4.252-5.135-4.936a.128.128 0 0 0-.157.091.128.128 0 0 0 .079.152c2.132.73 3.676 2.394 4.08 4.357.222 1.08-.013 2.088-.66 2.838-.452.524-1.107.828-1.854.858-1.282.051-2.375.864-2.744 2.043a2.078 2.078 0 0 0 .167 1.617.128.128 0 0 1-.106.19c-4.907-.252-8.8-4.33-8.8-9.283 0-5.133 4.176-9.31 9.31-9.31 5.133 0 9.31 4.176 9.31 9.31 0 2.97-1.4 5.697-3.734 7.442a.128.128 0 0 0 .142.213c2.6-1.7 4.278-4.625 4.278-7.938-.003-5.408-4.396-9.787-9.804-9.787z" />
+    </svg>
+  ),
+};
+
 const socials = [
   { name: "Spotify", href: "https://open.spotify.com/playlist/5cqkVsslOxda5lMkNIBhgS?si=0ca70ba39e9245f6" },
   { name: "Instagram", href: "https://instagram.com/peteiskander" },
@@ -216,7 +241,10 @@ export default function Contact() {
                   href={social.href}
                   className="group flex items-center justify-between py-4 border-b border-[#1e1e1e] hover:border-[#333] transition-colors duration-400 no-underline"
                 >
-                  <span className="font-[Urbanist] text-[14px] text-[#707070] group-hover:text-[#f2f0eb] transition-colors duration-300 font-light">
+                  <span className="flex items-center gap-2.5 font-[Urbanist] text-[14px] text-[#707070] group-hover:text-[#f2f0eb] transition-colors duration-300 font-light">
+                    <span className="text-[#555] group-hover:text-[#f2f0eb] transition-colors duration-300">
+                      {socialIcons[social.name]}
+                    </span>
                     {social.name}
                   </span>
                   <span className="text-[#333] group-hover:text-[#c0c0c0] group-hover:translate-x-1 transition-all duration-300 inline-block text-sm">
