@@ -8,8 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 const stats = [
   ["2015", "Started Producing"],
   ["50+", "Releases"],
-  ["2x", "RIAA Certified Platinum"],
-  ["1B+", "Streams Across All Platforms"],
+  ["2x", "RIAA Multi-Platinum"],
+  ["1B+", "Streams Worldwide"],
+  ["1x", "Grammy Nominated"],
 ];
 
 export default function About() {
@@ -151,12 +152,12 @@ export default function About() {
             <div className="grid md:grid-cols-2 gap-12 mb-20">
               <div ref={col1Ref}>
                 <p className="text-[#9e9e9e] leading-[1.9] text-[15px] font-light">
-                  Peter Iskander is a music producer from Houston, TX who has
-                  quietly become one of the most versatile names behind the
-                  boards. Since picking up production in 2015, he's built a
-                  catalog that speaks for itself — working with Drake, 21
-                  Savage, Central Cee, Offset, Kodak Black, Ella Mai, Lucky
-                  Daye, and more.
+                  Peter Iskander is a Grammy-nominated, RIAA multi-platinum
+                  music producer from Houston, TX who has quietly become one
+                  of the most versatile names behind the boards. Since picking
+                  up production in 2015, he's built a catalog that speaks for
+                  itself — working with Drake, 21 Savage, Central Cee, Offset,
+                  Kodak Black, Ella Mai, Lucky Daye, and more.
                 </p>
               </div>
               <div ref={col2Ref}>
@@ -174,7 +175,7 @@ export default function About() {
             {/* Stats */}
             <div
               ref={statsRef}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-[#222]"
+              className="grid grid-cols-2 md:grid-cols-5 gap-8 pt-12 border-t border-[#222]"
             >
               {stats.map(([value, label]) => (
                 <div key={label} data-stat>
