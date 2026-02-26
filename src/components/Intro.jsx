@@ -428,7 +428,7 @@ function Vinyl({ exiting }) {
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
             </svg>
           )}
-          <span className="font-[Urbanist] text-[9px] tracking-[0.15em] uppercase text-[#666]">
+          <span className="font-[Urbanist] text-[9px] tracking-[0.15em] uppercase text-[#707070]">
             {muted ? "Muted" : "Sound"}
           </span>
         </button>
@@ -436,7 +436,7 @@ function Vinyl({ exiting }) {
           <motion.span
             initial={{ opacity: 0, x: -5 }}
             animate={{ opacity: 1, x: 0 }}
-            className="font-[Urbanist] text-[9px] text-[#555] font-light"
+            className="font-[Urbanist] text-[9px] text-[#707070] font-light"
           >
             Tap to hear the music
           </motion.span>
@@ -660,7 +660,7 @@ export default function Intro({ onEnter }) {
                 delay: 0.3,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="font-[Urbanist] text-[10px] text-[#555] uppercase font-light mb-2"
+              className="font-[Urbanist] text-[10px] text-[#707070] uppercase font-light mb-2"
             >
               Music Producer
             </motion.p>
@@ -668,7 +668,7 @@ export default function Intro({ onEnter }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.6 }}
-              className="font-[Urbanist] text-[10px] text-[#444] tracking-[0.25em] uppercase font-light mb-8"
+              className="font-[Urbanist] text-[10px] text-[#707070] tracking-[0.25em] uppercase font-light mb-8"
             >
               Houston, TX
             </motion.p>
@@ -720,7 +720,7 @@ export default function Intro({ onEnter }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.8 }}
-              className="font-[Urbanist] text-[9px] text-[#444] tracking-[0.25em] uppercase font-light mb-8"
+              className="font-[Urbanist] text-[9px] text-[#707070] tracking-[0.25em] uppercase font-light mb-8"
             >
               Drag to spin
             </motion.p>

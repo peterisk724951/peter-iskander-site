@@ -129,7 +129,7 @@ export default function Contact() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-16">
           <div className="md:col-span-8">
-            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-10">
+            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#707070] mb-10">
               Get in Touch
             </p>
 
@@ -231,7 +231,7 @@ export default function Contact() {
           </div>
 
           <div className="md:col-span-3 md:col-start-10 flex flex-col justify-end">
-            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-6">
+            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#707070] mb-6">
               Elsewhere
             </p>
 
@@ -248,7 +248,7 @@ export default function Contact() {
                     </span>
                     {social.name}
                   </span>
-                  <span className="text-[#333] group-hover:text-[#c0c0c0] group-hover:translate-x-1 transition-all duration-300 inline-block text-sm">
+                  <span className="text-[#555] group-hover:text-[#c0c0c0] group-hover:translate-x-1 transition-all duration-300 inline-block text-sm">
                     &rarr;
                   </span>
                 </a>

@@ -38,7 +38,7 @@ export default function Listen() {
       <div ref={contentRef} className="max-w-[1600px] mx-auto">
         <div className="mb-14">
           <div className="text-center">
-            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-4">
+            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#707070] mb-4">
               Listen
             </p>
             <h2

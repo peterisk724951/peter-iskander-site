@@ -221,7 +221,7 @@ export default function Discography() {
         {/* Heading area */}
         <div className="px-6 md:px-12 pt-20 md:pt-0 pb-8 md:pb-6 max-w-[1600px] mx-auto w-full">
           <div ref={headingRef}>
-            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-5">
+            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#707070] mb-5">
               Selected Credits
             </p>
             <h2

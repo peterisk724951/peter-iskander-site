@@ -69,7 +69,7 @@ export default function Products() {
       <div className="max-w-[1600px] mx-auto">
         <div className="flex flex-col items-center mb-12">
           <div className="w-full max-w-[680px]">
-            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-4">
+            <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#707070] mb-4">
               Products
             </p>
             <div className="w-8 h-[1px] bg-[#2a2a2a] mb-8" />
@@ -109,7 +109,7 @@ export default function Products() {
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <span className="font-[Urbanist] text-[13px] text-[#333] font-light tracking-wider uppercase">
+                        <span className="font-[Urbanist] text-[13px] text-[#555] font-light tracking-wider uppercase">
                           Artwork Coming Soon
                         </span>
                       </div>
@@ -129,7 +129,7 @@ export default function Products() {
                       >
                         {product.title}
                       </h3>
-                      <p className="font-[Urbanist] text-[12px] text-[#505050] font-light tracking-wide mb-3">
+                      <p className="font-[Urbanist] text-[12px] text-[#707070] font-light tracking-wide mb-3">
                         Peter Iskander
                       </p>
                       <p className="font-[Urbanist] text-[13px] text-[#707070] leading-[1.8] font-light mb-5">

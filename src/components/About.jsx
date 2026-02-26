@@ -116,7 +116,7 @@ export default function About() {
           {/* Left column — label + photo */}
           <div className="md:col-span-3">
             <div className="md:sticky md:top-24">
-              <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-4">
+              <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#707070] mb-4">
                 About
               </p>
               <div className="w-8 h-[1px] bg-[#2a2a2a] mb-8" />
@@ -190,7 +190,7 @@ export default function About() {
                   >
                     {value}
                   </p>
-                  <p className="font-[Urbanist] text-[10px] tracking-[0.15em] uppercase text-[#505050]">
+                  <p className="font-[Urbanist] text-[10px] tracking-[0.15em] uppercase text-[#707070]">
                     {label}
                   </p>
                 </div>

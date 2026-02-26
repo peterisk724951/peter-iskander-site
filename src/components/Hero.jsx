@@ -235,7 +235,7 @@ export default function Hero() {
 
           {/* Credits row */}
           <div ref={creditsRef} className="flex items-center gap-4 flex-wrap mb-10">
-            <span className="font-[Urbanist] text-[10px] tracking-[0.2em] uppercase text-[#404040]">
+            <span className="font-[Urbanist] text-[10px] tracking-[0.2em] uppercase text-[#606060]">
               Credits include
             </span>
             <div className="h-[1px] w-6 bg-[#2a2a2a]" />
@@ -267,7 +267,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="font-[Urbanist] text-[12px] tracking-[0.15em] uppercase text-[#505050] no-underline hover:text-[#f2f0eb] transition-colors duration-300"
+              className="font-[Urbanist] text-[12px] tracking-[0.15em] uppercase text-[#707070] no-underline hover:text-[#f2f0eb] transition-colors duration-300"
             >
               Contact
             </a>
@@ -316,7 +316,7 @@ export default function Hero() {
                 >
                   {value}
                 </p>
-                <p className="font-[Urbanist] text-[9px] tracking-[0.15em] uppercase text-[#505050]">
+                <p className="font-[Urbanist] text-[9px] tracking-[0.15em] uppercase text-[#707070]">
                   {label}
                 </p>
               </div>
