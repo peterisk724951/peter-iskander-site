@@ -131,7 +131,7 @@ export default function Contact() {
             </a>
 
             <div className="mt-16">
-              <p className="font-[Urbanist] text-[10px] tracking-[0.2em] uppercase text-[#505050] mb-10">
+              <p className="font-[Urbanist] text-[10px] tracking-[0.2em] uppercase text-[#707070] mb-10">
                 Serious inquiries only — no samples or music submissions
               </p>
 
@@ -146,33 +146,33 @@ export default function Contact() {
                   name="name"
                   placeholder="Name"
                   required
-                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300"
+                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
                 />
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   required
-                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300"
+                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
                 />
                 <input
                   type="text"
                   name="subject"
                   placeholder="Subject"
                   required
-                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300"
+                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300"
                 />
                 <textarea
                   name="message"
                   placeholder="Message"
                   rows={4}
                   required
-                  className="bg-transparent border-0 border-b border-[#222] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#404040] py-3 text-sm transition-colors duration-300 resize-none"
+                  className="bg-transparent border-0 border-b border-[#333] focus:border-[#c0c0c0] outline-none font-[Urbanist] font-light text-[#f2f0eb] placeholder:text-[#606060] py-3 text-sm transition-colors duration-300 resize-none"
                 />
                 <div>
                   <button
                     type="submit"
-                    className="font-[Urbanist] text-[14px] tracking-wider uppercase text-[#999] border border-[#333] hover:border-[#c0c0c0] hover:text-[#f2f0eb] rounded-full px-7 py-3 bg-transparent cursor-pointer transition-all duration-300 font-light"
+                    className="font-[Urbanist] text-[14px] tracking-wider uppercase text-[#ccc] border border-[#555] hover:border-[#c0c0c0] hover:text-[#f2f0eb] rounded-full px-7 py-3 bg-transparent cursor-pointer transition-all duration-300 font-light"
                   >
                     Send Message
                   </button>
