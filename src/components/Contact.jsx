@@ -60,11 +60,12 @@ export default function Contact() {
             y: 0,
             opacity: 1,
             stagger: 0.08,
+            duration: 0.8,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: linksRef.current,
               start: "top 85%",
-              end: "top 55%",
-              scrub: 1,
+              once: true,
             },
           }
         );
@@ -79,11 +80,12 @@ export default function Contact() {
             y: 0,
             opacity: 1,
             stagger: 0.08,
+            duration: 0.8,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: formRef.current,
               start: "top 85%",
-              end: "top 55%",
-              scrub: 1,
+              once: true,
             },
           }
         );
