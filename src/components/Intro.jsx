@@ -719,7 +719,7 @@ export default function Intro({ onEnter }) {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 2.5 }}
+              transition={{ duration: 1, delay: 1.8 }}
               className="font-[Urbanist] text-[9px] text-[#444] tracking-[0.25em] uppercase font-light mb-8"
             >
               Drag to spin
@@ -731,7 +731,7 @@ export default function Intro({ onEnter }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 1,
-                delay: 2.8,
+                delay: 2.0,
                 ease: [0.22, 1, 0.36, 1],
               }}
               onClick={handleEnter}
