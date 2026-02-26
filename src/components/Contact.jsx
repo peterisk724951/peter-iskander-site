@@ -100,9 +100,9 @@ export default function Contact() {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                Let's make
+                Business
                 <br />
-                something
+                inquiries
                 <br />
                 <span
                   style={{
@@ -112,7 +112,7 @@ export default function Contact() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  together.
+                  welcome.
                 </span>
               </h2>
             </div>

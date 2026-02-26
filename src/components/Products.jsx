@@ -129,6 +129,9 @@ export default function Products() {
                       >
                         {product.title}
                       </h3>
+                      <p className="font-[Urbanist] text-[12px] text-[#505050] font-light tracking-wide mb-3">
+                        Peter Iskander
+                      </p>
                       <p className="font-[Urbanist] text-[13px] text-[#707070] leading-[1.8] font-light mb-5">
                         {product.description}
                       </p>
