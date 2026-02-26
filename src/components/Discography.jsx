@@ -217,9 +217,9 @@ export default function Discography() {
   return (
     <section id="work" ref={sectionRef}>
       {/* Horizontal scroll container (heading inside so it pins together) */}
-      <div ref={containerRef} className="relative overflow-x-auto md:overflow-hidden hide-scrollbar" style={{ WebkitOverflowScrolling: "touch" }}>
+      <div ref={containerRef} className="relative overflow-x-auto md:overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center hide-scrollbar" style={{ WebkitOverflowScrolling: "touch" }}>
         {/* Heading area */}
-        <div className="px-6 md:px-12 pt-20 md:pt-44 pb-12 md:pb-16 max-w-[1600px] mx-auto">
+        <div className="px-6 md:px-12 pt-20 md:pt-0 pb-8 md:pb-6 max-w-[1600px] mx-auto w-full">
           <div ref={headingRef}>
             <p className="font-[Urbanist] text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-5">
               Selected Credits
@@ -239,7 +239,7 @@ export default function Discography() {
         </div>
         <div
           ref={cardsRef}
-          className="flex gap-6 md:gap-8 pl-6 md:pl-12 pr-6 md:pr-[40vw] py-12"
+          className="flex gap-6 md:gap-8 pl-6 md:pl-12 pr-6 md:pr-[40vw] py-6 md:py-8"
           style={{ width: "max-content" }}
         >
           {releases.map((release, i) => (

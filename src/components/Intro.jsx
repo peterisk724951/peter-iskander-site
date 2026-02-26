@@ -308,10 +308,10 @@ function Vinyl({ exiting }) {
                 key={coverIndex}
                 src={tracks[coverIndex].cover}
                 alt=""
-                initial={{ opacity: 0, scale: 1.1 }}
+                initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />
@@ -442,11 +442,14 @@ function Vinyl({ exiting }) {
   );
 }
 
-function ChromeCanvas() {
+function SplashBackground() {
   const canvasRef = useRef(null);
-  const mouse = useRef({ x: 0, y: 0 });
+  const mouse = useRef({ x: -999, y: -999 });
   const animRef = useRef(null);
   const time = useRef(0);
+  const smoke = useRef([]);
+  const rings = useRef([]);
+  const lastRing = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -454,8 +457,18 @@ function ChromeCanvas() {
     let w = (canvas.width = window.innerWidth);
     let h = (canvas.height = window.innerHeight);
 
-    const cols = Math.ceil(w / 30);
-    const rows = Math.ceil(h / 30);
+    // Initialize smoke particles
+    for (let i = 0; i < 18; i++) {
+      smoke.current.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: 100 + Math.random() * 160,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.2,
+        alpha: 0.015 + Math.random() * 0.025,
+        phase: Math.random() * Math.PI * 2,
+      });
+    }
 
     const onResize = () => {
       w = canvas.width = window.innerWidth;
@@ -475,42 +488,83 @@ function ChromeCanvas() {
     window.addEventListener("touchmove", onTouchMove);
 
     const draw = () => {
-      time.current += 0.008;
+      time.current += 0.006;
       ctx.clearRect(0, 0, w, h);
 
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const x = i * 30 + 15;
-          const y = j * 30 + 15;
-          const dx = mouse.current.x - x;
-          const dy = mouse.current.y - y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const wave =
-            Math.sin(time.current * 2 + i * 0.3 + j * 0.3) * 0.5 + 0.5;
+      const cx = w / 2;
+      const cy = h / 2;
 
-          let alpha = 0.03 + wave * 0.02;
-          let radius = 0.8;
+      // --- Smoke / fog ---
+      smoke.current.forEach((p) => {
+        // Drift with organic movement
+        p.x += p.vx + Math.sin(time.current * 0.8 + p.phase) * 0.4;
+        p.y += p.vy + Math.cos(time.current * 0.5 + p.phase) * 0.3;
 
-          if (dist < 200) {
-            const force = 1 - dist / 200;
-            alpha += force * 0.15;
-            radius += force * 1.5;
-          }
-
-          ctx.beginPath();
-          ctx.arc(x, y, radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(192, 192, 192, ${alpha})`;
-          ctx.fill();
+        // Cursor pushes smoke away
+        const dx = mouse.current.x - p.x;
+        const dy = mouse.current.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 300) {
+          const force = (1 - dist / 300) * 0.6;
+          p.x -= dx * force * 0.015;
+          p.y -= dy * force * 0.015;
         }
+
+        // Wrap
+        if (p.x < -p.r) p.x = w + p.r;
+        if (p.x > w + p.r) p.x = -p.r;
+        if (p.y < -p.r) p.y = h + p.r;
+        if (p.y > h + p.r) p.y = -p.r;
+
+        // Breathing radius
+        const breathe = 0.85 + Math.sin(time.current * 0.4 + p.phase) * 0.15;
+        const radius = p.r * breathe;
+
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius);
+        grad.addColorStop(0, `rgba(180, 180, 180, ${p.alpha})`);
+        grad.addColorStop(0.4, `rgba(140, 140, 140, ${p.alpha * 0.4})`);
+        grad.addColorStop(1, "rgba(100, 100, 100, 0)");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // --- Sound wave rings from center (vinyl position) ---
+      // Spawn a new ring every ~1.8 seconds
+      if (time.current - lastRing.current > 1.8) {
+        lastRing.current = time.current;
+        rings.current.push({ born: time.current });
       }
 
-      const scanY = ((time.current * 80) % (h + 100)) - 50;
-      const scanGrad = ctx.createLinearGradient(0, scanY - 30, 0, scanY + 30);
-      scanGrad.addColorStop(0, "rgba(192,192,192,0)");
-      scanGrad.addColorStop(0.5, "rgba(192,192,192,0.04)");
-      scanGrad.addColorStop(1, "rgba(192,192,192,0)");
-      ctx.fillStyle = scanGrad;
-      ctx.fillRect(0, scanY - 30, w, 60);
+      rings.current = rings.current.filter((ring) => {
+        const age = time.current - ring.born;
+        const lifespan = 5;
+        const progress = age / lifespan;
+        if (progress > 1) return false;
+
+        const maxR = Math.max(w, h) * 0.9;
+        const radius = progress * maxR;
+        const alpha = (1 - progress) * 0.07;
+
+        // Draw ring with slight thickness variation
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(192, 192, 192, ${alpha})`;
+        ctx.lineWidth = 1 + (1 - progress) * 0.5;
+        ctx.stroke();
+
+        // Inner glow ring
+        if (progress < 0.3) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(220, 220, 220, ${(1 - progress / 0.3) * 0.04})`;
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        }
+
+        return true;
+      });
 
       animRef.current = requestAnimationFrame(draw);
     };
@@ -580,7 +634,7 @@ export default function Intro({ onEnter }) {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[100] bg-[#0a0a0a] flex flex-col items-center justify-center overflow-hidden"
         >
-          <ChromeCanvas />
+          <SplashBackground />
 
           {/* Corner chrome accents */}
           <div className="absolute top-8 left-8 w-16 h-[1px] bg-gradient-to-r from-[#555] to-transparent" />
