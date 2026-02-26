@@ -303,18 +303,22 @@ function Vinyl({ exiting }) {
                 "0 0 80px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,0,0,0.3)",
             }}
           >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={coverIndex}
-                src={tracks[coverIndex].cover}
-                alt=""
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 w-full h-full object-cover"
-                draggable={false}
-              />
+            <AnimatePresence>
+              {tracks.map((track, i) => (
+                i === coverIndex && (
+                  <motion.img
+                    key={i}
+                    src={track.cover}
+                    alt=""
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    draggable={false}
+                  />
+                )
+              ))}
             </AnimatePresence>
           </div>
 
