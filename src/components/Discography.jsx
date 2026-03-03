@@ -225,7 +225,7 @@ export default function Discography() {
               Selected Credits
             </p>
             <h2
-              className="font-[Michroma] font-bold text-5xl md:text-7xl tracking-tight leading-[1]"
+              className="font-[Michroma] font-bold text-5xl md:text-7xl tracking-tight leading-[1.15]"
               style={{
                 background:
                   "linear-gradient(180deg, #ffffff 0%, #808080 100%)",
@@ -233,7 +233,7 @@ export default function Discography() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              The catalog
+              The Catalog
             </h2>
           </div>
         </div>
